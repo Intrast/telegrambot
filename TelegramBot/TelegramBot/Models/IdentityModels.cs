@@ -29,5 +29,9 @@ namespace TelegramBot.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<TelegramBot.Models.Profile> Profiles { get; set; }
+
+        public System.Data.Entity.DbSet<TelegramBot.Models.WorkExperiense> WorkExperienses { get; set; }
     }
 }

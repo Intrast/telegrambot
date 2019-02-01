@@ -177,13 +177,32 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
+    <Compile Include="Controllers\WorkExperiensesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901310821313_InitialCreate.cs" />
+    <Compile Include="Migrations\201901310821313_InitialCreate.Designer.cs">
+      <DependentUpon>201901310821313_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901311255152_Validate.cs" />
+    <Compile Include="Migrations\201901311255152_Validate.Designer.cs">
+      <DependentUpon>201901311255152_Validate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902011005281_Profiles and Work Experiense.cs" />
+    <Compile Include="Migrations\201902011005281_Profiles and Work Experiense.Designer.cs">
+      <DependentUpon>201902011005281_Profiles and Work Experiense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902011018095_something.cs" />
+    <Compile Include="Migrations\201902011018095_something.Designer.cs">
+      <DependentUpon>201902011018095_something.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Profile.cs" />
+    <Compile Include="Models\WorkExperiense.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -243,7 +262,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Profiles\Create.cshtml" />
+    <Content Include="Views\Profiles\Delete.cshtml" />
+    <Content Include="Views\Profiles\Details.cshtml" />
+    <Content Include="Views\Profiles\Edit.cshtml" />
     <Content Include="Views\Profiles\Index.cshtml" />
+    <Content Include="Views\WorkExperienses\Create.cshtml" />
+    <Content Include="Views\WorkExperienses\Delete.cshtml" />
+    <Content Include="Views\WorkExperienses\Details.cshtml" />
+    <Content Include="Views\WorkExperienses\Edit.cshtml" />
+    <Content Include="Views\WorkExperienses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -260,6 +288,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201901310821313_InitialCreate.resx">
+      <DependentUpon>201901310821313_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901311255152_Validate.resx">
+      <DependentUpon>201901311255152_Validate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902011005281_Profiles and Work Experiense.resx">
+      <DependentUpon>201902011005281_Profiles and Work Experiense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902011018095_something.resx">
+      <DependentUpon>201902011018095_something.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -10,114 +10,118 @@ using TelegramBot.Models;
 
 namespace TelegramBot.Controllers
 {
-    public class ProfilesController : Controller
+    public class WorkExperiensesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Profiles
+        // GET: WorkExperienses
         public ActionResult Index()
         {
-            return View(db.Profiles.ToList());
+            return View(db.WorkExperienses.ToList());
         }
 
-        // GET: Profiles/Details/5
+        // GET: WorkExperienses/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            WorkExperiense workExperiense = db.WorkExperienses.Find(id);
+            if (workExperiense == null)
             {
                 return HttpNotFound();
             }
-            return View(profile);
+            return View(workExperiense);
         }
 
-        // GET: Profiles/Create
+        // GET: WorkExperienses/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Profiles/Create
+        // POST: WorkExperienses/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Surname,Phone_number,Skype,Email,LinkedIn,Work_experience,Skills,Created_at,Updated_at")] Profile profile)
+        public ActionResult Create([Bind(Include = "ID,Level")] WorkExperiense workExperiense)
         {
             if (ModelState.IsValid)
             {
-                profile.Created_at = DateTime.Now;
-                profile.Updated_at = DateTime.Now;
-                db.Profiles.Add(profile);
+                db.WorkExperienses.Add(workExperiense);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(profile);
+            return View(workExperiense);
         }
 
-        // GET: Profiles/Edit/5
+        // GET: WorkExperienses/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            WorkExperiense workExperiense = db.WorkExperienses.Find(id);
+            if (workExperiense == null)
             {
                 return HttpNotFound();
             }
-            profile.Updated_at = DateTime.Now;
-            return View(profile);
+            return View(workExperiense);
         }
 
-        // POST: Profiles/Edit/5
+        // POST: WorkExperienses/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Surname,Phone_number,Skype,Email,LinkedIn,Work_experience,Skills,Updated_at")] Profile profile)
+        public ActionResult Edit([Bind(Include = "ID,Level")] WorkExperiense workExperiense)
         {
             if (ModelState.IsValid)
             {
-                profile.Updated_at = DateTime.Now;
-                db.Entry(profile).State = EntityState.Modified;
+                db.Entry(workExperiense).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(profile);
+            return View(workExperiense);
         }
 
-        // GET: Profiles/Delete/5
+        // GET: WorkExperienses/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            WorkExperiense workExperiense = db.WorkExperienses.Find(id);
+            if (workExperiense == null)
             {
                 return HttpNotFound();
             }
-            return View(profile);
+            return View(workExperiense);
         }
 
-        // POST: Profiles/Delete/5
+        // POST: WorkExperienses/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Profile profile = db.Profiles.Find(id);
-            db.Profiles.Remove(profile);
+            WorkExperiense workExperiense = db.WorkExperienses.Find(id);
+            db.WorkExperienses.Remove(workExperiense);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }
